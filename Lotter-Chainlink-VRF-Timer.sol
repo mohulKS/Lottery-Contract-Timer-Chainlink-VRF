@@ -40,7 +40,7 @@ contract Lottery is VRFConsumerBase {
 
     function Enter() public payable {
         require(msg.value == 1 ether, "Please enter 0.01 Ether");
-        require(end <= start + 2 minutes, "You cannot enter the Lottery Contract now.");
+        require(end <= start + 1 hours, "You cannot enter the Lottery Contract now.");
         require(msg.sender != admin, "You are the owner of this contract, you cannot play.");
         end = block.timestamp;
         players.push(payable(msg.sender));
